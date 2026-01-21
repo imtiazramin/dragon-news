@@ -2,24 +2,32 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Header from '../components/Header';
 import LatestNews from '../components/LatestNews';
+import NavBar from '../components/NavBar';
+import LeftAside from '../components/HomeLayout/LeftAside';
+import RightAside from '../components/HomeLayout/RightAside';
 
 const HomeLayout = () => {
     return (
         <div>
-            <header></header>
-            <main>
-                <section className='left_nav'>
-                    <Header></Header>
-                    <section className='w-11/12 mx-auto my-5'>
-                        <LatestNews></LatestNews>
-                    </section>
+            <header>
+                <Header></Header>
+                <section className='w-11/12 mx-auto my-5'>
+                    <LatestNews></LatestNews>
                 </section>
-                <section className='main'>
+                <nav className='w-11/12 mx-auto my-5'>
+                    <NavBar></NavBar>
+                </nav>
+            </header>
+            <main className='w-11/12 mx-auto my-5 grid grid-cols-12 '>
+                <aside className='col-span-3'>
+                    <LeftAside></LeftAside>
+                </aside>
+                <section className='main col-span-6'>
                     <Outlet></Outlet>
                 </section>
-                <section className='right_nav'>
-
-                </section>
+                <aside className='col-span-3'>
+                    <RightAside></RightAside>
+                </aside>
             </main>
         </div>
     );
